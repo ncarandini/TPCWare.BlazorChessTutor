@@ -2,30 +2,32 @@
 
 <PageTitle>Square Color</PageTitle>
 
-<div class="square-quest-page">
-    <div class="square-quest-grid">
-        <h1 class="square-quest-title">Guess the color of square</h1>
+<div class="container py-2">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <h1 class="h3 h2-md">Indovina il colore della casella</h1>
 
-        <div class="square-label">@SquareLabel</div>
+            <div class="display-3 fw-bold text-uppercase mb-4">@SquareLabel</div>
 
-        <div class="feedback-zone" aria-live="polite">
-            @if (ShowCorrectFeedback)
-            {
-                <div class="feedback feedback-correct" title="Correct answer">:)</div>
-            }
-            else if (ShowWrongFeedback)
-            {
-                <div class="feedback feedback-wrong" title="Wrong answer">:(</div>
-            }
-        </div>
+            <div class="d-flex align-items-center justify-content-center mb-4" style="min-height: 80px;" aria-live="polite">
+                @if (ShowCorrectFeedback)
+                {
+                    <img src="images/happy.svg" alt="Risposta corretta" title="Risposta corretta" class="img-fluid" style="max-height: 160px;" />
+                }
+                else if (ShowWrongFeedback)
+                {
+                    <img src="images/sad.svg" alt="Risposta sbagliata" title="Risposta sbagliata" class="img-fluid" style="max-height: 160px;" />
+                }
+            </div>
 
-        <div class="answer-buttons">
-            <button class="btn btn-light quest-button" @onclick="() => SubmitGuess(true)">White</button>
-            <button class="btn btn-dark quest-button" @onclick="() => SubmitGuess(false)">Black</button>
-        </div>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mb-4">
+                <button class="btn btn-light btn-lg px-5 py-3 flex-fill flex-sm-grow-0" @onclick="() => SubmitGuess(true)">Bianco</button>
+                <button class="btn btn-dark btn-lg px-5 py-3 flex-fill flex-sm-grow-0" @onclick="() => SubmitGuess(false)">Nero</button>
+            </div>
 
-        <div class="score-row">
-            <span>Correct answers: @CorrectAnswerCounter / @AnswerCounter</span>
+            <div class="fs-5 fw-semibold">
+                Risposte corrette: @CorrectAnswerCounter / @AnswerCounter
+            </div>
         </div>
     </div>
 </div>
